@@ -26,9 +26,9 @@ public class BoardApiController {
         return ResponseEntity.ok(list);
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/detail/{id}")
     public ResponseEntity<Board> get(@PathVariable("id") Long id) {
-        Board board = service.get(id);
+        Board board = service.detail(id);
         return ResponseEntity.ok(board);
     }
 

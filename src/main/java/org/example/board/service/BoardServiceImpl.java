@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Board get(Long id) {
-        return boardMapper.get(id);
+    public Board detail(Long id) {
+        return boardMapper.detail(id);
     }
 
     @Override
@@ -31,12 +31,12 @@ public class BoardServiceImpl implements BoardService {
     public Board update(Board board) {
         boardMapper.update(board);
         System.out.println(board.toString());
-        return get(board.getId());
+        return detail(board.getId());
     }
 
     @Override
     public Board delete(Long id) {
-        Board board = get(id);
+        Board board = detail(id);
         boardMapper.delete(id);
         return board;
     }

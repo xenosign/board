@@ -87,7 +87,7 @@
     <label for="content">내용</label>
     <textarea id="content" name="content" required></textarea>
 
-    <input type="hidden" name="author" value="user0" />
+    <input type="hidden" name="author" value="test6" />
 
     <input type="submit" value="글 작성">
     <a class="cancel-button" href="/post/v1/show">취소</a>

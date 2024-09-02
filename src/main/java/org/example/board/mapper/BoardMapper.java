@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BoardMapper {
     List<Board> getList();
-    Board get(Long id);
+    Board detail(Long id);
     int create(Board board);
     int update(Board board);
     int delete(Long id);

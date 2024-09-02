@@ -102,7 +102,7 @@
     <c:forEach var="board" items="${boardList}">
         <tr>
             <td>${board.id}</td>
-            <td><a href="/board/get?id=${board.id}">${board.title}</a></td>
+            <td><a href="/board/detail?id=${board.id}">${board.title}</a></td>
             <td>${board.content}</td>
         </tr>
     </c:forEach>

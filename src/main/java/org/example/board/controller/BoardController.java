@@ -28,13 +28,14 @@ public class BoardController {
         return context + "/list";
     }
 
-    @GetMapping("/get")
+    @GetMapping("/detail")
     public String get(@RequestParam("id") Long id, Model model) {
-        Board board = service.get(id);
+        Board board = service.detail(id);
         model.addAttribute("board", board);
         return context + "/detail";
     }
 
+    // 게시글 작성 모드 이동
     @GetMapping("/create")
     public void create() {}
 
@@ -46,12 +47,11 @@ public class BoardController {
 
     @GetMapping("/update")
     public void update(@RequestParam("id") Long id, Model model) {
-        model.addAttribute("board", service.get(id));
+        model.addAttribute("board", service.detail(id));
     }
 
     @PostMapping("/update")
     public String update(Board board) {
-        System.out.println(board.toString());
         service.update(board);
         return "redirect:/board/list";
     }
