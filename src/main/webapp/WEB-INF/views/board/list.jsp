@@ -109,6 +109,6 @@
     </tbody>
 </table>
 
-<a class="new-button" href="/board/create">새글 작성하기</a>
+<a class="new-button" href="/board/create">글 작성하기</a>
 </body>
 </html>

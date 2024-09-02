@@ -81,13 +81,14 @@
 <%@include file="../header.jsp"%>
 <h1>글 작성</h1>
 <form action="/board/create" method="post">
+    <label for="title">작성자</label>
+    <input type="text" name="author" />
+
     <label for="title">제목</label>
     <input type="text" id="title" name="title" required>
 
     <label for="content">내용</label>
     <textarea id="content" name="content" required></textarea>
-
-    <input type="hidden" name="author" value="test6" />
 
     <input type="submit" value="글 작성">
     <a class="cancel-button" href="/post/v1/show">취소</a>

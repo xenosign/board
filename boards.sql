@@ -1,8 +1,5 @@
-create
-database module_db;
-use
-module_db;
-
+create database module_db;
+use module_db;
 CREATE TABLE boards
 (
     id       INTEGER AUTO_INCREMENT PRIMARY KEY,

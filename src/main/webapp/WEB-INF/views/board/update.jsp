@@ -90,15 +90,17 @@
 <%@include file="../header.jsp"%>
 <h1>게시글 수정</h1>
 <form action="/board/update" method="post">
-    <input type="hidden" name="id" value="${board.id}">
+    <label for="title">ID</label>
+    <input type="text" name="id" value="${board.id}" disabled />
+
+    <label for="title">작성자</label>
+    <input type="text" name="author" value="${board.author}" disabled />
 
     <label for="title">제목</label>
     <input type="text" id="title" name="title" value="${board.title}" required>
 
     <label for="content">내용</label>
     <textarea id="content" name="content" required>${board.content}</textarea>
-
-    <input type="hidden" name="author" value="${board.author}" />
 
     <input type="submit" value="수정" class="submit-button">
     <a href="/board/list" class="back-button">목록으로 돌아가기</a>
