@@ -4,18 +4,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.board.domain.Board;
 import org.example.board.service.BoardService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/board")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @Slf4j
 public class BoardApiController {
 
@@ -31,5 +30,24 @@ public class BoardApiController {
     public ResponseEntity<Board> get(@PathVariable("id") Long id) {
         Board board = service.get(id);
         return ResponseEntity.ok(board);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<String> create(Board board) {
+        service.create(board);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<String> update(Board board) {
+        System.out.println(board.toString());
+        service.update(board);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
+    @PostMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        service.delete(id);
+        return "redirect:/board/list";
     }
 }

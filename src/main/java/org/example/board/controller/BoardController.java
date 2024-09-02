@@ -28,6 +28,13 @@ public class BoardController {
         return context + "/list";
     }
 
+    @GetMapping("/get")
+    public String get(@RequestParam("id") Long id, Model model) {
+        Board board = service.get(id);
+        model.addAttribute("board", board);
+        return context + "/detail";
+    }
+
     @GetMapping("/create")
     public void create() {}
 
@@ -35,13 +42,6 @@ public class BoardController {
     public String create(Board board) {
         service.create(board);
         return "redirect:/board/list";
-    }
-
-    @GetMapping("/get")
-    public String get(@RequestParam("id") Long id, Model model) {
-        Board board = service.get(id);
-        model.addAttribute("board", board);
-        return context + "/detail";
     }
 
     @GetMapping("/update")
