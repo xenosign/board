@@ -6,17 +6,16 @@ import org.example.board.domain.Board;
 import org.example.board.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/board")
+@RequestMapping("/rest/board")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 @Slf4j
-public class BoardApiController {
+public class BoardRestController {
 
     private final BoardService service;
 
@@ -33,13 +32,13 @@ public class BoardApiController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> create(Board board) {
+    public ResponseEntity<String> create(@RequestBody Board board) {
         service.create(board);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("/update")
-    public ResponseEntity<String> update(Board board) {
+    public ResponseEntity<String> update(@RequestBody Board board) {
         System.out.println(board.toString());
         service.update(board);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
