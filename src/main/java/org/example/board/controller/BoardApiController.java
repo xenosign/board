@@ -46,8 +46,8 @@ public class BoardApiController {
     }
 
     @PostMapping("/delete")
-    public String delete(@RequestParam("id") Long id) {
+    public ResponseEntity<String> delete(@RequestParam("id") Long id) {
         service.delete(id);
-        return "redirect:/board/list";
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
 }
